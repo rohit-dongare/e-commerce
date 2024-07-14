@@ -1,0 +1,16 @@
+<!-- it is the part of cart.ejs file , and also go through the session collection in database on command prompt -->
+<article class="cart-item">
+    <div class="cart-item-info">
+       <h2><%= item.product.title %></h2>
+       <p>$<span class="cart-item-price"><%= item.totalPrice.toFixed(2) %></span> <span class="cart-product-price">($<%= item.product.price.toFixed(2) %>)</span></p>
+    </div>
+
+    <!-- here you can see i haven't add any action or method i.e post or get method to handle the submission by the browser-->
+    <!-- instead i want to send own js based http request so that it won't reload the page instead update some part of it-->
+    <!-- go through cart-item-management.js file and also through cart.model.js, cart.controller.js, cart.routes.js file -->
+    <!-- also i want to send patch request instead of get/post request -->
+    <form class="cart-item-management" data-productid="<%= item.product.id %>" data-csrf="<%= locals.csrfToken %>">
+      <input type="number" value="<%= item.quantity %>" required>
+      <button class="btn btn-alt">Update</button>
+    </form>
+ </article>

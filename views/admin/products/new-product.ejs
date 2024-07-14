@@ -1,0 +1,18 @@
+<%- include('../../shared/includes/head', { pageTitle: 'Add New Product' }) %>
+<link rel="stylesheet" href="/styles/forms.css">
+<script src="/scripts/image-preview.js" defer></script>
+</head>
+<body>
+    <%- include('../../shared/includes/header') %>
+    <main>
+       <h1>Add new Product</h1>
+       <%- include('includes/product-form', { submitPath: '/admin/products', product: {
+        title: '',
+        summary: '',
+        price: '',
+        description: ''
+       }, 
+       imageRequired: true
+      }) %><!-- imageRequired is true because the admin will only have to  upload the image if he is creating a new product and not have to when updating the products i mean if he wants to update the image also then it is still okk as we will replace the old image with new one-->
+    </main>
+<%- include('../../shared/includes/footer') %>

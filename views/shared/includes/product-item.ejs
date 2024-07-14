@@ -1,0 +1,16 @@
+<article class="product-item">
+    <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
+    <div class="product-item-content">
+        <h2><%= product.title %></h2>
+        <div class="product-item-actions">
+            <% if (locals.isAdmin) { %>
+            <a href="/admin/products/<%= product.id %>" class="btn btn-alt">View & Edit</a>
+            <button class="btn btn-alt" data-productid="<%= product.id %>" data-csrf="<%= locals.csrfToken %>">Delete</button>
+            <!-- we have added this data set property to know which button has been clicked and based on that which product should be deleted -->
+            <!-- we also add the dataset property of csrfToken otherwise when we request the fecth() method in product-management.js file , server will block this request -->
+            <% } else { %>
+                <a href="/products/<%= product.id %>" class="btn btn-alt">View Details</a>
+            <% } %>    
+        </div>
+    </div>
+</article>
